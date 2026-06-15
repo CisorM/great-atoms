@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "Great Atoms — Build digital products that scale",
+    "description": "Modern platform to launch landing pages, products, and web experiences with performance, SEO, and internationalization from day one.",
+    "keywords": [
+      "great atoms",
+      "landing page",
+      "astro",
+      "seo",
+      "multilingual",
+      "web development"
+    ]
+  },
+  "nav": {
+    "features": "Features",
+    "contact": "Contact",
+    "cta": "Get started"
+  },
+  "hero": {
+    "eyebrow": "Performance · SEO · i18n",
+    "headline": "Your next landing page, built to grow",
+    "subheadline": "Architecture designed to scale: per-locale content, optimized metadata, and a solid Astro, Tailwind, and TypeScript foundation.",
+    "ctaPrimary": "Request a demo",
+    "ctaSecondary": "See features"
+  },
+  "features": {
+    "title": "Built to scale",
+    "subtitle": "Every layer is separated so you can add pages, languages, and content without rewriting the foundation.",
+    "items": [
+      {
+        "title": "First-class SEO",
+        "description": "Metadata, Open Graph, JSON-LD, hreflang, and automatic sitemaps for every locale."
+      },
+      {
+        "title": "Multilingual content",
+        "description": "Copy lives in per-locale files. Add French or Portuguese by following the same pattern."
+      },
+      {
+        "title": "Native performance",
+        "description": "Static HTML, zero unnecessary JavaScript, and Tailwind styles for lightning-fast loads."
+      },
+      {
+        "title": "Modular structure",
+        "description": "Reusable layouts, sections, and components ready for new pages and landings."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to launch?",
+    "description": "Start with a professional foundation and focus on the message, not the infrastructure.",
+    "button": "Contact us"
+  },
+  "footer": {
+    "tagline": "Building web experiences that matter.",
+    "copyright": "© {year} Great Atoms. All rights reserved.",
+    "links": [
+      { "label": "Privacy", "href": "#" },
+      { "label": "Terms", "href": "#" },
+      { "label": "GitHub", "href": "https://github.com" }
+    ]
+  }
+}

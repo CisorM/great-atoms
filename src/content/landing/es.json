@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "Great Atoms — Construye productos digitales que escalan",
+    "description": "Plataforma moderna para lanzar landing pages, productos y experiencias web con rendimiento, SEO e internacionalización desde el primer día.",
+    "keywords": [
+      "great atoms",
+      "landing page",
+      "astro",
+      "seo",
+      "multiidioma",
+      "desarrollo web"
+    ]
+  },
+  "nav": {
+    "features": "Características",
+    "contact": "Contacto",
+    "cta": "Empezar"
+  },
+  "hero": {
+    "eyebrow": "Rendimiento · SEO · i18n",
+    "headline": "Tu próxima landing, lista para crecer",
+    "subheadline": "Arquitectura pensada para escalar: contenido por idioma, metadatos optimizados y una base sólida con Astro, Tailwind y TypeScript.",
+    "ctaPrimary": "Solicitar demo",
+    "ctaSecondary": "Ver características"
+  },
+  "features": {
+    "title": "Diseñado para escalar",
+    "subtitle": "Cada capa del proyecto está separada para que puedas añadir páginas, idiomas y contenido sin reescribir la base.",
+    "items": [
+      {
+        "title": "SEO de primer nivel",
+        "description": "Metadatos, Open Graph, JSON-LD, hreflang y sitemap automático para cada idioma."
+      },
+      {
+        "title": "Contenido multiidioma",
+        "description": "Textos desacoplados en archivos por locale. Añade francés o portugués copiando el mismo patrón."
+      },
+      {
+        "title": "Rendimiento nativo",
+        "description": "HTML estático, cero JavaScript innecesario y estilos con Tailwind para cargas ultrarrápidas."
+      },
+      {
+        "title": "Estructura modular",
+        "description": "Layouts, secciones y componentes reutilizables listos para nuevas páginas y landings."
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para lanzar?",
+    "description": "Empieza con una base profesional y enfócate en el mensaje, no en la infraestructura.",
+    "button": "Contactar ahora"
+  },
+  "footer": {
+    "tagline": "Construyendo experiencias web que importan.",
+    "copyright": "© {year} Great Atoms. Todos los derechos reservados.",
+    "links": [
+      { "label": "Privacidad", "href": "#" },
+      { "label": "Términos", "href": "#" },
+      { "label": "GitHub", "href": "https://github.com" }
+    ]
+  }
+}

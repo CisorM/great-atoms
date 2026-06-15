@@ -1,0 +1,36 @@
+---
+import SEOHead from '../components/seo/SEOHead.astro';
+import Footer from '../components/layout/Footer.astro';
+import Header from '../components/layout/Header.astro';
+import { htmlLang, type Locale } from '../i18n/config';
+import type { LandingContent } from '../content/landing/types';
+import '../styles/global.css';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+  content: LandingContent;
+}
+
+const { locale, pathname, content } = Astro.props;
+---
+
+<!doctype html>
+<html lang={htmlLang[locale]}>
+  <head>
+    <SEOHead
+      locale={locale}
+      title={content.meta.title}
+      description={content.meta.description}
+      keywords={content.meta.keywords}
+      pathname={pathname}
+    />
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+    <Header locale={locale} pathname={pathname} content={content} />
+    <main>
+      <slot />
+    </main>
+    <Footer content={content} />
+  </body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://great-atoms.com/sitemap-index.xml

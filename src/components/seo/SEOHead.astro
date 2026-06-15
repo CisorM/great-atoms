@@ -1,0 +1,82 @@
+---
+import { SITE } from '../../config/site';
+import { htmlLang, ogLocale, type Locale } from '../../i18n/config';
+import { getAlternateUrls } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  keywords?: string[];
+  pathname: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  locale,
+  title,
+  description,
+  keywords = [],
+  pathname,
+  ogImage = SITE.defaultOgImage,
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(pathname, SITE.url).href;
+const alternateUrls = getAlternateUrls(pathname, SITE.url);
+const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+const ogImageUrl = new URL(ogImage, SITE.url).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  description,
+  inLanguage: [htmlLang.es, htmlLang.en],
+};
+---
+
+<!-- Primary Meta -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+{keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+<link rel="canonical" href={canonicalUrl} />
+{noindex ? (
+  <meta name="robots" content="noindex, nofollow" />
+) : (
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+)}
+
+<!-- hreflang -->
+<link rel="alternate" hreflang="es" href={alternateUrls.es} />
+<link rel="alternate" hreflang="en" href={alternateUrls.en} />
+<link rel="alternate" hreflang="x-default" href={alternateUrls.es} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:locale" content={ogLocale[locale]} />
+<meta property="og:locale:alternate" content={ogLocale[locale === 'es' ? 'en' : 'es']} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={SITE.twitter} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<!-- Icons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

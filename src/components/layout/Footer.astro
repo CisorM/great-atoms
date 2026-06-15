@@ -1,0 +1,40 @@
+---
+import { SITE } from '../../config/site';
+import type { LandingContent } from '../../content/landing/types';
+
+interface Props {
+  content: LandingContent;
+}
+
+const { content } = Astro.props;
+const year = new Date().getFullYear();
+const copyright = content.footer.copyright.replace('{year}', String(year));
+---
+
+<footer class="border-t border-white/10 bg-slate-950">
+  <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between">
+    <div>
+      <p class="text-lg font-semibold text-white">{SITE.name}</p>
+      <p class="mt-2 max-w-sm text-sm text-slate-400">{content.footer.tagline}</p>
+      <p class="mt-4 text-xs text-slate-500">{copyright}</p>
+    </div>
+
+    <nav aria-label="Footer">
+      <ul class="flex flex-wrap gap-6">
+        {
+          content.footer.links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-slate-400 transition-colors hover:text-white"
+                {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</footer>

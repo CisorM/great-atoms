@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Cta from '../components/sections/Cta.astro';
+import Features from '../components/sections/Features.astro';
+import Hero from '../components/sections/Hero.astro';
+import { getLandingContent } from '../i18n/content';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+
+const { locale, pathname } = Astro.props;
+const content = getLandingContent(locale);
+---
+
+<BaseLayout locale={locale} pathname={pathname} content={content}>
+  <Hero hero={content.hero} />
+  <Features features={content.features} />
+  <Cta cta={content.cta} />
+</BaseLayout>

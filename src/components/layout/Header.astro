@@ -1,0 +1,41 @@
+---
+import LanguageSwitcher from '../ui/LanguageSwitcher.astro';
+import type { LandingContent } from '../../content/landing/types';
+import { SITE } from '../../config/site';
+import type { Locale } from '../../i18n/config';
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+  content: LandingContent;
+}
+
+const { locale, pathname, content } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+    <a href={locale === 'en' ? '/en' : '/'} class="text-lg font-semibold tracking-tight text-white">
+      {SITE.name}
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Principal">
+      <a href="#features" class="text-sm text-slate-300 transition-colors hover:text-white">
+        {content.nav.features}
+      </a>
+      <a href="#contact" class="text-sm text-slate-300 transition-colors hover:text-white">
+        {content.nav.contact}
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <LanguageSwitcher currentLocale={locale} pathname={pathname} />
+      <a
+        href="#contact"
+        class="hidden rounded-full bg-indigo-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-400 sm:inline-flex"
+      >
+        {content.nav.cta}
+      </a>
+    </div>
+  </div>
+</header>
